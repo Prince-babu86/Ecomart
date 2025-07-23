@@ -1,0 +1,17 @@
+.banner-wrapper {
+  width: 100%;
+  position: relative;
+  border: 1px solid #e5e7eb;
+}
+
+.banner-track {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.banner-text {
+  display: inline-flex;
+  white-space: nowrap;
+  gap: 3rem;
+}
