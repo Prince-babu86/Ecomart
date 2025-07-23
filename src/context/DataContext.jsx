@@ -66,7 +66,7 @@ export const DataContext = ({ children }) => {
   const [popup, setpopup] = useState(null);
 
   useEffect(()=>{
-    setpopup(loggeduser.notifications[loggeduser.notifications.length - 1]);
+    setpopup(loggeduser?.notifications[loggeduser?.notifications.length - 1]);
 
     setTimeout(() => {
       setpopup(null)
