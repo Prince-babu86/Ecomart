@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ProductsData from "../data/ProductsData";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useData } from "../context/DataContext";
 import Products from "./Products";
+import Share from "../components/Share";
 
 const ViewProduct = () => {
   let { id } = useParams();
@@ -11,7 +12,8 @@ const ViewProduct = () => {
 
   let product = ProductsData.find((p) => p.id === id);
   let isSavedCard = loggeduser?.cart.includes(product.id);
-  
+
+  let location = useLocation();
 
   const [orderItem, setorderItem] = useState({
     id: product.id,
@@ -23,21 +25,19 @@ const ViewProduct = () => {
     total: product.price,
   });
 
-
   useEffect(() => {
-  if (product) {
-    setorderItem({
-      id: product.id,
-      name: product.name,
-      size: product.sizes[0],
-      price: product.price,
-      image: product.images[0],
-      qty: 1,
-      total: product.price,
-    });
-  }
-}, [product]);
-
+    if (product) {
+      setorderItem({
+        id: product.id,
+        name: product.name,
+        size: product.sizes[0],
+        price: product.price,
+        image: product.images[0],
+        qty: 1,
+        total: product.price,
+      });
+    }
+  }, [product]);
 
   const handleIncrement = () => {
     if (orderItem.qty >= 0 && orderItem.qty < 4) {
@@ -87,27 +87,26 @@ const ViewProduct = () => {
     setreloader(true);
     setTimeout(() => {
       setreloader(false);
-      navigate(`/product/${id}/check-out`, { state: { orderItem } });
+      navigate(`/product/${id}/check-out`, {
+        state: { orderItem, cameFromProduct: true },
+      });
     }, 2000);
   };
 
   // console.log(orderItem.qty);
 
- const [image, setimage] = useState(product.images[0]);
+  const [image, setimage] = useState(product.images[0]);
 
-useEffect(() => {
-  if (product?.images?.[0]) {
-    setimage(product.images[0]);
-  }
-}, [product]);
+  useEffect(() => {
+    if (product?.images?.[0]) {
+      setimage(product.images[0]);
+    }
+  }, [product]);
 
-
-  useEffect(()=>{
-
-  },[image])
+  useEffect(() => {}, [image]);
 
   return (
-    <div className="w-full flex flex-col pb-32 bg-white">
+    <div className="w-full flex flex-col  bg-white">
       <div className="view_product_page w-full flex p-5">
         {" "}
         <div className="view_product_images flex flex-wrap w-[55%] p-2 gap-3 ">
@@ -128,8 +127,11 @@ useEffect(() => {
           />
           <div className="mobile_images block md:hidden overflow-x-auto w-full  gap-3 ">
             {product.images.map((i, id) => (
-              
-              <div onClick={()=>setimage(i)} key={id} className="h-16 w-16  rounded-sm flex-shrink-0 hover:border-2 border-blue-500 hover:scale-[1.01] duration-500 ease-in-out">
+              <div
+                onClick={() => setimage(i)}
+                key={id}
+                className=" h-16 w-16  rounded-sm flex-shrink-0 hover:border-2 border-blue-500 hover:scale-[1.01] duration-500 ease-in-out"
+              >
                 <img
                   src={i}
                   alt=""
@@ -195,10 +197,7 @@ useEffect(() => {
                 })}
               </div>
             </div>
-            <div className="product_share mt-4 flex items-center gap-2.5 cursor-pointer border-b-1 pb-5 border-gray-500">
-              <i className="ri-share-line text-xl"></i>
-              <h4 className="text-sm font-semibold ">Share</h4>
-            </div>
+            <Share url={product} />
             <div className="product_order flex flex-col mt-4 border-b-1 pb-5 border-gray-600">
               <div className="product_order_some flex items-center gap-5">
                 <div className="product_qty flex items-center py-4 bg-[#EFEFEF] rounded-full px-4 gap-5">

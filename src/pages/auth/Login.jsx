@@ -2,8 +2,8 @@ import gsap from "gsap";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useData } from "../../context/DataContext";
-import  '../../style/App.css'
-import  '../../style/Tablet.css'
+import "../../style/App.css";
+import "../../style/Tablet.css";
 
 const Login = () => {
   // useEffect(() => {
@@ -28,8 +28,10 @@ const Login = () => {
     password: "",
   });
 
-  let { users, setusers, loggeduser, setloggeduser, reloader, setreloader } =
+  let { users, setusers, loggeduser, setloggeduser, reloader, setreloader , popup , setpopup } =
     useData();
+
+    console.log(popup);
 
   let navigate = useNavigate();
   const [loader, setloader] = useState(false);
@@ -41,24 +43,40 @@ const Login = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    if(formdata.email.length > 4 && formdata.password.length > 4){
-       let user = users.find((u) => u.email === formdata.email);
-       if(user && user.password === formdata.password){
-        setloader(true)
-       setTimeout(() => {
-        setloader(false)
-        setloggeduser(user)
-        setreloader(true)
+    if (formdata.email.length > 4 && formdata.password.length > 4) {
+      let user = users.find((u) => u.email === formdata.email);
+      if (user && user.password === formdata.password) {
+        setloader(true);
         setTimeout(() => {
-          navigate("/")
-          setreloader(false)
-        }, 1000);
-       }, 3000);
-       }else{
-        console.log("user not found");
-       }
-    }else{
-      return
+          setloader(false);
+          setloggeduser(user);
+          setreloader(true);
+          setTimeout(() => {
+            navigate("/");
+            setreloader(false);
+            setpopup({tittle:"User Logged in sucessfully"})
+          }, 1000);
+          setpopup(null)
+        }, 3000);
+      } else {
+        setpopup({tittle:"User not found"})
+        setTimeout(() => {
+          setformdata({
+            email:"",
+            password:"",
+          })
+          setpopup(null)
+          setTimeout(() => {
+            setpopup(null)
+          }, 2000);
+        }, 2000);
+      }
+    } else {
+      setpopup({tittle:"Please enter full data"})
+      setTimeout(() => {
+        setpopup(null)
+      }, 3000);
+      return;
     }
   };
 
@@ -149,18 +167,18 @@ const Login = () => {
             </p>
 
             <div className="signup_form_buttons flex items-center justify-between w-full mt-5">
-              <button
+              <button onClick={()=>navigate(-1)}
                 type="reset"
                 className="w-36 bg-red-600 px-10 py-2 text-white rounded-md cursor-pointer uppercase hover:bg-red-500"
               >
                 Cancel
               </button>
-             {!loader ? (
+              {!loader ? (
                 <button
                   type="submit"
                   className="w-36 bg-[#000] px-10 py-2 text-white rounded-md uppercase cursor-pointer hover:bg-[#111]"
                 >
-                  Sign up
+                  Login
                 </button>
               ) : (
                 <div className="w-32 bg-[#000] px-10 py-3 text-white rounded-md uppercase cursor-pointer hover:bg-[#111] flex items-center justify-center">

@@ -51,14 +51,14 @@ const Footer = () => {
           <h3 className="text-xl font-semibold mb-2">Follow Us</h3>
           <div className="flex gap-4">
             {[Instagram, Facebook, Twitter].map((Icon, i) => (
-              <motion.div
+              <a href="https://www.instagram.com/itz_kallukaliya?igsh=MTZwdjkyaXI3amE1Mw=="
                 key={i}
                 whileHover={{ scale: 1.2, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
                 className="bg-white text-blue-800 p-2 rounded-full shadow-lg cursor-pointer hover:bg-blue-100"
               >
                 <Icon size={20} />
-              </motion.div>
+              </a>
             ))}
           </div>
         </div>

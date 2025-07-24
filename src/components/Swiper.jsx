@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { NavLink } from "react-router-dom";
 
 const PremiumBanner = () => {
   const bannerRef = useRef(null);
@@ -48,12 +49,12 @@ const PremiumBanner = () => {
           ref={buttonGroupRef}
           className="mt-10 flex flex-wrap gap-6"
         >
-          <button className="bg-yellow-400 text-black font-semibold py-3 px-8 rounded-full hover:scale-105 hover:shadow-yellow-300/50 hover:shadow-xl transition-all duration-300">
+          <NavLink to={`/products`} className="bg-yellow-400 text-black font-semibold py-3 px-8 rounded-full hover:scale-105 hover:shadow-yellow-300/50 hover:shadow-xl transition-all duration-300">
             Shop Now
-          </button>
-          <button className="border border-white text-white bg-white/10 backdrop-blur-md font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-md">
+          </NavLink>
+          <NavLink to={`/`} className="border border-white text-white bg-white/10 backdrop-blur-md font-semibold py-3 px-8 rounded-full hover:bg-white hover:text-black transition-all duration-300 shadow-md">
             Explore More
-          </button>
+          </NavLink>
         </div>
       </div>
     </div>

@@ -5,18 +5,19 @@ import {
   ShoppingCart,
   User,
   PackageCheck,
-  Receipt, // ✅ Add this line
+  Receipt,
+  Bell, // ✅ Add this line
 } from "lucide-react";
 
 const BottomMobileMenu = () => {
   return (
     <div className="fixed bottom-0 w-full bg-white border-t border-gray-200 shadow-[0_-1px_10px_rgba(0,0,0,0.05)] z-[2000] md:hidden">
       <div className="flex justify-between px-6 py-2">
-        <NavItem to="/" label="Home" icon={<Home size={22} />} />
-        <NavItem to="/products" label="Products" icon={<PackageCheck size={22} />} />
-        <NavItem to="/orders" label="Orders" icon={<Receipt size={22} />} /> {/* ✅ New Orders tab */}
-        <NavItem to="/cart" label="Cart" icon={<ShoppingCart size={22} />} />
-        <NavItem to="/profile" label="Profile" icon={<User size={22} />} />
+        <NavItem to="/"  icon={<Home size={22} />} />
+        <NavItem to="/products"  icon={<PackageCheck size={22} />} />
+        <NavItem to="/orders"  icon={<Receipt size={22} />} /> {/* ✅ New Orders tab */}
+        <NavItem to="/notifications"  icon={<Bell size={22} />} />
+        <NavItem to="/profile"  icon={<User size={22} />} />
       </div>
     </div>
   );

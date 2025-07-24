@@ -18,7 +18,7 @@ const navItems = [
   { to: "/profile", icon: User, label: "Account" },
   { to: "/profile/premium", icon: Star, label: "Premium" },
   { to: "/profile/edit-profile", icon: PenIcon, label: "Edit" },
-  { to: "/profile/notifications", icon: Bell, label: "Notifications" },
+  { to: "/notifications", icon: Bell, label: "Notifications" },
   { to: "/profile/cards", icon: ShoppingBag, label: "Cards" },
   { to: "/profile/create-cards", icon: Plus, label: "Add Card" },
   { to: "/logout", icon: LogOut, label: "Logout" },

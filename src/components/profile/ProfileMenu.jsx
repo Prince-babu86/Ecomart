@@ -68,7 +68,7 @@ const ProfileMenu = () => {
             <span className="font-medium profile_menu_head">Edit Profile</span>
           </NavLink>
 
-          <NavLink to="/profile/notifications" end className={getClassName}>
+          <NavLink to="/notifications" end className={getClassName}>
             <Bell
               size={20}
               className="group-hover:scale-110 transition-transform"

@@ -18,6 +18,7 @@ export const DataContext = ({ children }) => {
 
   const [sortBy, setSortBy] = useState("");
   const [category, setCategory] = useState("All");
+  const [sortby, setsortby] = useState("")
   const [searchquery, setsearchquery] = useState("");
 
   const [loggeduser, setloggeduser] = useState(() => {
@@ -33,7 +34,7 @@ export const DataContext = ({ children }) => {
       message: product.name,
       id: product.id,
       images: product.images[0],
-       createdAt: new Date().toISOString(),
+      createdAt: new Date().toISOString(),
     };
     if (product && loggeduser) {
       const updateduser = {
@@ -47,31 +48,29 @@ export const DataContext = ({ children }) => {
           u.userId === loggeduser.userId ? { ...u, ...updateduser } : u
         )
       );
-    }else navigate("/login")
+    } else navigate("/login");
   };
   console.log(loggeduser);
 
-  // BuyNowFunctions 
-  const navigate = useNavigate()
+  // BuyNowFunctions
+  const navigate = useNavigate();
   const BuyNowProduct = (id) => {
-    setreloader(true)
+    setreloader(true);
     setTimeout(() => {
-      setreloader(false)
-      navigate(`/product/${id}`)
+      setreloader(false);
+      navigate(`/product/${id}`);
     }, 2000);
-
-  }
-
+  };
 
   const [popup, setpopup] = useState(null);
 
-  useEffect(()=>{
+  useEffect(() => {
     setpopup(loggeduser?.notifications[loggeduser?.notifications.length - 1]);
 
     setTimeout(() => {
-      setpopup(null)
+      setpopup(null);
     }, 3000);
-  },[loggeduser , users])
+  }, [loggeduser, users]);
 
   useEffect(() => {
     localStorage.setItem("Users", JSON.stringify(users));
@@ -102,6 +101,9 @@ export const DataContext = ({ children }) => {
         AddToCart,
         BuyNowProduct,
         popup,
+        setpopup,
+        sortby,
+         setsortby
       }}
     >
       {children}

@@ -16,7 +16,7 @@ const About = () => {
         <div className="flex flex-col md:flex-row items-center gap-10">
           {/* Avatar */}
           <img
-            src="https://lh3.googleusercontent.com/a/ACg8ocIOJ9F066FoeGbwHq4TGsrwuLtIRHUUVHyb6lWESMDni2r80s0t=s360-c-no"
+            src="/princebab.jpg"
             alt="Founder"
             className="w-40 h-40 rounded-full object-cover border-4 border-blue-500 shadow-md"
           />
@@ -37,11 +37,11 @@ const About = () => {
         {/* Highlights */}
         <div className="mt-12 grid sm:grid-cols-3 gap-6 text-center">
           <div className="bg-blue-50 p-6 rounded-xl shadow-md">
-            <h3 className="text-2xl font-bold text-blue-700">3+</h3>
+            <h3 className="text-2xl font-bold text-blue-700">1+</h3>
             <p className="text-sm text-gray-600 mt-1">Years of Experience</p>
           </div>
           <div className="bg-purple-50 p-6 rounded-xl shadow-md">
-            <h3 className="text-2xl font-bold text-purple-700">20+</h3>
+            <h3 className="text-2xl font-bold text-purple-700">10+</h3>
             <p className="text-sm text-gray-600 mt-1">Projects Completed</p>
           </div>
           <div className="bg-green-50 p-6 rounded-xl shadow-md">

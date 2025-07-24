@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const MyProducts = () => {
   const navigate = useNavigate(); // for navigate a page
-  let { setreloader } = useData();
+  let { setreloader , BuyNowProduct, } = useData();
 
   const hanldeNavigateProductPage = (id) => {
     if (id) {
@@ -29,8 +29,8 @@ const MyProducts = () => {
   );
   const topfitsitems = FilterTopFitsItems.map((p, id) => {
     return (
-      <div key={id} className="myproduct_item  w-[450px] ">
-        <div className="my_product_item_image flex items-center  h-[520px]">
+      <div  key={id} className="myproduct_item cursor-pointer w-[450px] ">
+        <div onClick={()=>BuyNowProduct(p.id)} className="my_product_item_image flex items-center  h-[520px]">
           <div className="group flex h-full w-full  transition-transform   duration-75 relative">
             <img
               className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] opacity-100 group-hover:opacity-0"
@@ -68,9 +68,9 @@ const MyProducts = () => {
   );
   const bottmofitsitems = FilterBottomItems.map((p, id) => {
     return (
-      <div key={id} className="myproduct_item  w-[450px] ">
+      <div  key={id} className="myproduct_item  cursor-pointer w-[450px] ">
         <div className="flex items-center  h-[520px]">
-          <div className="group flex h-full w-full  transition-transform   duration-75 relative">
+          <div onClick={()=>BuyNowProduct(p.id)} className="group flex h-full w-full  transition-transform   duration-75 relative">
             <img
               className="absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] opacity-100 group-hover:opacity-0"
               src={p.images[0]}
@@ -107,8 +107,8 @@ const MyProducts = () => {
   );
   const composetfits = FilterCompoSet.map((p, id) => {
     return (
-      <div key={id} className="coords_product_item flex-col flex w-[50%] transition-transform overflow-x-hidden">
-        <div className="flex h-full w-full   group ease-in-out duration-500  hover:-translate-x-[100%]">
+      <div  key={id} className="coords_product_item cursor-pointer flex-col flex w-[50%] transition-transform overflow-x-hidden">
+        <div onClick={()=>BuyNowProduct(p.id)} className="flex h-full w-full   group ease-in-out duration-500  hover:-translate-x-[100%]">
           <img
             className="object-cover w-full h-full "
             src={p.images[0]}

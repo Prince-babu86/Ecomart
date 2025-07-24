@@ -107,6 +107,10 @@
     left: 0;
   }
 
+  .mobile_images::-webkit-scrollbar{
+    display: none;
+  }
+
   .cart_product{
     display: flex;
     flex-direction: column;

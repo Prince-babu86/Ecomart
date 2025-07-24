@@ -32,7 +32,6 @@ const Search = () => {
   const handleSearch = (e) => {
     if (e.key === "Enter") {
       setreloader(true);
-
       setTimeout(() => {
         setisSearchShow(false);
         setreloader(false);
@@ -41,6 +40,10 @@ const Search = () => {
     } else return;
   };
 
+  const handleSeachNavigae = () => {
+
+  }
+
   console.log(searchquery);
 
   let filterSearchtags = ProductsData.filter((p) =>
@@ -48,7 +51,7 @@ const Search = () => {
   );
 
   return (
-    <div className="search-page h-screen w-full bg-white fixed overflow-y-auto  top-0  z-[1500] py-7 px-20">
+    <div className="search-page min-h-[80vh] w-full bg-white fixed  top-0  z-[1500] py-7 px-20">
       <h1 className="w-full text-center text-2xl font-semibold font-sans">
         Search Our site
       </h1>

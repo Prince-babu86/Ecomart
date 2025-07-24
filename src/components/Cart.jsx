@@ -22,10 +22,10 @@ const Cart = () => {
 
   const handleHideCart = () => {
     if (isCartShow) {
-      navigate("/");
+      // navigate("/");
       setisCartShow(false);
     } else {
-      navigate("/");
+      // navigate("/");
     }
   };
 

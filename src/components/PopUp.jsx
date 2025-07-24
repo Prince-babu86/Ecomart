@@ -22,11 +22,11 @@ const Popup = ({popup}) => {
         </button>
 
         {/* Image */}
-        <img
+        {popup?.images && <img
           src={popup?.images}
           alt="user"
           className="w-14 h-14 object-cover rounded-full border-2 border-yellow-400 shadow-lg"
-        />
+        />}
 
         {/* Text Content */}
         <div className="flex-1">

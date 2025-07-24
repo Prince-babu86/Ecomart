@@ -3,8 +3,7 @@ import { useData } from "../context/DataContext";
 
 const FilterBar = () => {
   let { category, setCategory, sortBy, setSortBy ,  } = useData();
-
-
+  
   return (
     <div className="w-full mt-5 flex flex-col md:flex-row items-center justify-between gap-4 p-4 bg-white border border-gray-200 rounded-xl shadow-sm">
       {/* Sort By Dropdown */}

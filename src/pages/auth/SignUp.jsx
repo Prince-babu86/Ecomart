@@ -3,9 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useData } from "../../context/DataContext";
 import { nanoid } from "nanoid";
-import  '../../style/App.css'
-import  '../../style/Tablet.css'
-
+import "../../style/App.css";
+import "../../style/Tablet.css";
 
 const SignUp = () => {
   //  useEffect(() => {
@@ -25,22 +24,30 @@ const SignUp = () => {
   //   })
   //  },[])
 
-  let { users, setusers, loggeduser, setloggeduser, reloader, setreloader } =
-    useData();
+  let {
+    users,
+    setusers,
+    loggeduser,
+    setloggeduser,
+    reloader,
+    setreloader,
+    popup,
+    setpopup,
+  } = useData();
 
   const [formdata, setformdata] = useState({
-    userId:nanoid(),
+    userId: nanoid(),
     name: "",
     email: "",
     password: "",
     cart: [],
-    cards:[],
+    cards: [],
     wishlist: [],
     orders: [],
-    notifications:[],
-    premium:null,
-    searchHistory:[],
-    createdAt: new Date().toISOString(), 
+    notifications: [],
+    premium: null,
+    searchHistory: [],
+    createdAt: new Date().toISOString(),
   });
 
   const [loader, setloader] = useState(false);
@@ -61,15 +68,18 @@ const SignUp = () => {
       setloader(true);
       setTimeout(() => {
         setloader(false);
-        setloggeduser(formdata)
+        setloggeduser(formdata);
         setusers((prev) => [...prev, formdata]);
-        setreloader(true)
+        setreloader(true);
         setTimeout(() => {
-          setreloader(false)
-          navigate("/")
+          setreloader(false);
+          navigate("/");
+          setpopup({ tittle: "User Account Created Sucessfully" });
         }, 1000);
+        setpopup(null);
       }, 3000);
     } else {
+      setpopup({tittle:"Please enter full data"})
       return;
     }
   };
@@ -173,7 +183,8 @@ const SignUp = () => {
             </p>
 
             <div className="signup_form_buttons flex items-center justify-between w-full mt-5">
-              <button
+              <button 
+              onClick={()=>navigate(-1)}
                 type="reset"
                 className="w-40 bg-red-600 px-10 py-2 text-white rounded-md cursor-pointer uppercase hover:bg-red-500"
               >

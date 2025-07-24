@@ -8,7 +8,15 @@ const PaymentPage = () => {
   const { orderItem, user } = location.state || {};
   console.log(orderItem);
 
-  let { loggeduser, setloggeduser, users, setusers, setreloader , popup , setpopup } = useData();
+  let {
+    loggeduser,
+    setloggeduser,
+    users,
+    setusers,
+    setreloader,
+    popup,
+    setpopup,
+  } = useData();
   let card = loggeduser?.cards[0];
 
   const price = orderItem?.price || 1499;
@@ -16,7 +24,7 @@ const PaymentPage = () => {
   const subtotal = price * qty;
   const shipping = 49;
   const tax = 75;
-  const total = parseInt(orderItem.total) + shipping + tax;
+  const total = parseInt(orderItem?.total) + shipping + tax;
 
   const [cvv, setcvv] = useState("");
   const [loader, setloader] = useState(false);
@@ -34,6 +42,7 @@ const PaymentPage = () => {
 
   useEffect(() => {
     if (!card) {
+      // setpopup({tittle:"Page Not Found please check out"})
       navigate("/profile/create-cards");
     }
   }, [card]);
@@ -104,11 +113,22 @@ const PaymentPage = () => {
       } else {
         setcvv("");
         setloader(false);
-        alert("Your cvv no is wrong please re-enter!")
+        setpopup({tittle:"cvv no is Wrong"})
+        setTimeout(() => {
+          setpopup(null)
+        }, 3000);
       }
     }, 3000);
   };
 
+  // const location = useLocation();
+
+   useEffect(() => {
+    // If no state, redirect (means user typed URL manually)
+    if (!location.state?.cameFromProduct) {
+      navigate("/", { replace: true });
+    }
+  }, [location]);
 
   console.log(popup);
   return (
@@ -139,10 +159,10 @@ const PaymentPage = () => {
                   {orderItem?.size || "M"}
                 </p>
                 <p className="text-gray-900 font-bold mt-2">
-                  ₹{orderItem.price}
+                  ₹{orderItem?.price}
                 </p>
                 <p className="text-sm text-gray-500 mt-1">
-                  Qty: {orderItem.qty}
+                  Qty: {orderItem?.qty}
                 </p>
               </div>
             </div>
@@ -151,7 +171,7 @@ const PaymentPage = () => {
 
             <div className="flex justify-between text-sm text-gray-600 mb-2">
               <span>Subtotal</span>
-              <span>₹{orderItem.total}</span>
+              <span>₹{orderItem?.total}</span>
             </div>
             <div className="flex justify-between text-sm text-gray-600 mb-2">
               <span>Shipping</span>
@@ -230,6 +250,7 @@ const PaymentPage = () => {
                   </label>
                   <input
                     onChange={(e) => setcvv(e.target.value)}
+                    maxLength={3}
                     minLength={3}
                     required
                     type="password"

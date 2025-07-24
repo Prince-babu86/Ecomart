@@ -128,6 +128,7 @@ const CreateCard = () => {
               required
               type="password"
               name="cvv"
+              minLength={3}
               value={card.cvv}
               onChange={handleChange}
               className="mt-1 w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-black outline-none"

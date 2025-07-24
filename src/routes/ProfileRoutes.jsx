@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import MyAccount from "../components/profile/MyAccount";
 import EditProfile from "../components/profile/EditProfile";
 import Premium from "../components/profile/Premium";
-import MyNotifications from "../components/profile/MyNotifications";
+
 import Cards from "../components/profile/Cards";
 import CreateCard from "../components/profile/CreateCard";
 
@@ -15,7 +15,7 @@ const ProfileRoutes = () => {
         <Route path="/" element={<MyAccount />} />
         <Route path="/edit-profile" element={<EditProfile />} />
         <Route path="/premium" element={<Premium />} />
-        <Route path="/notifications" element={<MyNotifications />} />
+        
         <Route path="/cards" element={<Cards />} />
      
        <Route path="/create-cards" element={<CreateCard />} />

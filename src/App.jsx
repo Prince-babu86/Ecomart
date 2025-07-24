@@ -13,6 +13,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Loader from "./components/Loader";
 import gsap from "gsap";
 import PopUp from "./components/PopUp";
+import SmoothScroll from "./SmoothScroll";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +45,8 @@ const App = () => {
   if (isLoading) return <Loader />;
 
   return (
+    <>
+    {/* <SmoothScroll/> */}
     <div
       ref={appContentRef}
       className={`min-h-screen app_main_page w-full bg-[#efefef] ${
@@ -64,6 +67,7 @@ const App = () => {
 
       {/* <Footer /> */}
     </div>
+    </>
   );
 };
 
