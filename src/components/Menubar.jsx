@@ -29,7 +29,7 @@ const NavItem = ({ to, label, icon }) => (
     end
     className={({ isActive }) =>
       `flex flex-col items-center justify-center transition-all duration-200 ${
-        isActive ? "text-blue-600 font-semibold" : "text-gray-600"
+        isActive ? "text-yellow-600 font-semibold" : "text-gray-600"
       }`
     }
   >

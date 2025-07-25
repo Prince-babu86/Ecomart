@@ -43,7 +43,7 @@ const ProductsData = [
     description:
       "Step up your style game with this cut-out baby tee. Featuring a chic chest cut-out and subtle embroidery, it's the perfect addition",
     price: "1999",
-    orginalPrice: "1999",
+    orginalPrice: "3999",
     discount: "",
     sizes: ["X", "XS", "M", "L", "XL"],
     images: [
@@ -337,7 +337,7 @@ const ProductsData = [
     description:
       "Made with 100% soft cotton, this unisex co-ord set is all about comfort and ease. It includes a relaxed-fit button-down shirt with a chest pocket, paired with breezy, straight-fit pants. The sage green color gives it a clean, effortless vibe—perfect for everyday wear.",
     price: "3000",
-    orginalPrice: "3000",
+    orginalPrice: "6999",
     discount: "0%",
     sizes: ["S", "M", "L", "XL"],
     images: [
@@ -385,7 +385,7 @@ const ProductsData = [
     description:
       "Made with 100% soft cotton, this unisex co-ord set is all about comfort and ease. It includes a relaxed-fit button-down shirt with a chest pocket, paired with breezy, straight-fit pants. The neutral tone gives it a clean, effortless vibe—perfect for everyday wear.",
     price: "3000",
-    orginalPrice: "3000",
+    orginalPrice: "6999",
     discount: "0%",
     sizes: ["S", "M", "L", "XL"],
     images: [

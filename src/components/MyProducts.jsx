@@ -137,7 +137,7 @@ const MyProducts = () => {
   });
 
   return (
-    <div className="myProductpage w-full flex flex-wrap mt-7 bg-white items-center justify-center pb-20 ">
+    <div className="myProductpage w-full flex flex-wrap mt-7 bg-[#f8f9fb] text-[#222] items-center justify-center pb-20 ">
       {/* <div className="mt-6 group cursor-pointer w-full flex gap-8 items-center  ">
         <div className="flex gap-8 w-full group- ease-in-out duration-200">
           <i className="ri-arrow-right-line text-9xl group-hover:rotate-180 duration-700 ease-in-out"></i>

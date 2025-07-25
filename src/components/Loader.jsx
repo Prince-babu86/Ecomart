@@ -58,9 +58,9 @@ const Loader = ({ onComplete }) => {
     <AnimatePresence>
       <motion.div
         ref={loaderRef}
-        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center text-white"
+        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center text-gray-800"
         style={{
-          background: "linear-gradient(135deg, #1e3a8a, #3b82f6, #06b6d4)",
+          background: "linear-gradient(135deg, #f0f4f8, #ffffff, #fef3c7)",
         }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -71,7 +71,7 @@ const Loader = ({ onComplete }) => {
           {[...Array(5)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute rounded-full bg-white/10"
+              className="absolute rounded-full bg-yellow-300/10"
               style={{
                 width: `${80 + i * 40}px`,
                 height: `${80 + i * 40}px`,
@@ -94,14 +94,14 @@ const Loader = ({ onComplete }) => {
         {/* Main Logo Text */}
         <div
           ref={textRef}
-          className="text-6xl md:text-8xl font-extrabold drop-shadow-lg z-10"
+          className="text-6xl md:text-8xl font-extrabold drop-shadow-lg z-10 text-yellow-500"
         >
           ECOMART
         </div>
 
         {/* Sub Text */}
         <motion.p
-          className="mt-4 text-xl md:text-2xl z-10"
+          className="mt-4 text-xl md:text-2xl z-10 text-gray-700"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 3.2, duration: 1.2, ease: "easeOut" }}
@@ -111,7 +111,7 @@ const Loader = ({ onComplete }) => {
 
         {/* Counter */}
         <motion.div
-          className="mt-6 text-2xl md:text-3xl font-semibold z-10"
+          className="mt-6 text-2xl md:text-3xl font-semibold z-10 text-pink-600"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}

@@ -46,7 +46,7 @@ const Orders = () => {
 
   return (
     <div
-      className="p-5 sm:p-8 max-w-5xl mx-auto bg-gradient-to-br pb-32 from-white via-gray-50 to-white rounded-xl shadow-inner"
+      className="p-5 sm:p-8 max-w-5xl mx-auto  pb-32 bg-[#f8f9fb] text-[#222] rounded-xl shadow-inner"
       ref={containerRef}
     >
       <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center tracking-tight">

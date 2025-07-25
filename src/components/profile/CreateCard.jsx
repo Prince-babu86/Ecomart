@@ -1,15 +1,24 @@
 import React, { useState } from "react";
 import { useData } from "../../context/DataContext";
 import { nanoid } from "nanoid";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CreateCard = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const cameFromPayment = location.state?.cameFromPayment;
+  const orderitem = location.state?.orderItem;
+  console.log(orderitem);
+
+  console.log(cameFromPayment);
+
   const [card, setCard] = useState({
-    id:nanoid(),
+    id: nanoid(),
     cardNumber: "",
     cvv: "",
     bank: "State Bank of India",
     cardType: "silver",
-    balance:10000
+    balance: 10000,
   });
 
   const [loader, setloader] = useState(false);
@@ -53,14 +62,21 @@ const CreateCard = () => {
           )
         );
         setloader(false);
+
         setCard({
           cardNumber: "",
           cvv: "",
           bank: "State Bank of India",
           cardType: "silver",
         });
+        // if(cameFromPayment && orderitem) {
+        //   navigate(`/product/${orderitem.id}/check-out`);
+        // } else {
+        //   navigate("/profile/cards");
+        // }
       }
       setloader(false);
+
       return;
     }, 3000);
     console.log("Card Created:", card);
@@ -73,7 +89,7 @@ const CreateCard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white flex items-center justify-center px-4 py-10">
+    <div className="min-h-screen bg-[#f8f9fb] text-[#222] flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
         <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
           Create New Card

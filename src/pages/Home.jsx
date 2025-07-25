@@ -4,6 +4,7 @@ import Banner from '../components/Banner'
 import Search from '../components/Search'
 import MyProducts from '../components/MyProducts'
 import Footer from '../components/Footer'
+import NewsletterSignup from '../components/NewsletterSignup'
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <Banner/>
        {/* <Search/> */}
       <MyProducts/>
+      <NewsletterSignup/>
     <Footer/>
      
     </div>

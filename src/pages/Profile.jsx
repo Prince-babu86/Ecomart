@@ -12,7 +12,7 @@ const Profile = () => {
    {loggeduser ?  <div className='w-full flex gap-4 z-[100]'>
      <div className='menubar_mobile hidden'> <ProfileMenuHorizontal/></div>
         <ProfileMenu/>
-       <div className='profile_routes ml-72  w-full z-[100] bg-white h-[80vh]'> 
+       <div className='profile_routes ml-72  w-full z-[100]  h-[80vh]'> 
          <ProfileRoutes/>
        </div>
         

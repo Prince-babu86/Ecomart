@@ -8,7 +8,7 @@ const MyNotifications = () => {
   let notifications = loggeduser?.notifications;
 
   return (
-    <div className="min-h-[90vh] flex-grow p-6 bg-white pb-32">
+    <div className="mynotifications_page min-h-[90vh] flex-grow p-6 bg-[#f8f9fb] text-[#222] pb-32">
       <h1 className="text-2xl font-semibold mb-6">Notifications</h1>
       <div className="space-y-4">
         {notifications?.length > 0 ? <div className="flex flex-col gap-3">{notifications.reverse().map((note,id) => (
@@ -24,7 +24,7 @@ const MyNotifications = () => {
               />
             )}
             <div>
-              <h2 className="font-medium text-lg">{note.tittle}</h2>
+              <h2 className="notif_tittle font-medium text-lg">{note.tittle}</h2>
               <p className="text-sm text-gray-500 mb-1">{note.message}</p>
               <span className="text-xs text-gray-400">
                 {moment(note.createdAt).fromNow()}

@@ -25,7 +25,7 @@ const ProfileMenu = () => {
     }`;
 
   return (
-    <div className="w-[260px] profile_menu_page fixed min-h-screen bg-white border-r border-gray-200 shadow-sm p-6 flex flex-col justify-between">
+    <div className="w-[260px] profile_menu_page fixed min-h-screen bg-[#f8f9fb] text-[#222]border-r border-gray-200 shadow-sm p-6 flex flex-col justify-between">
       <div>
         <ul className="space-y-2 text-gray-700">
           <NavLink to="/" end className={getClassName}>

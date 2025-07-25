@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <>
-    {/* <SmoothScroll/> */}
+   
     <div
       ref={appContentRef}
       className={`min-h-screen app_main_page w-full bg-[#efefef] ${
@@ -62,6 +62,7 @@ const App = () => {
       {popup && <PopUp popup={popup}/>}
 
       <div className={`${isShow ? "mt-0" : "mt-20"}`}>
+         <SmoothScroll/>
         <MainRoutes />
       </div>
 

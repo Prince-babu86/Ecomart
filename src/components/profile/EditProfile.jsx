@@ -104,7 +104,7 @@ const EditProfile = () => {
  
 
   return (
-    <div className="flex-grow bg-white p-10 pb-32 shadow-md ">
+    <div className="flex-grow bg-[#f8f9fb] text-[#222] p-10 pb-32 shadow-md ">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Edit Profile</h2>
       <form onSubmit={handleEdituser} className="space-y-6">
         <div className="flex items-center gap-6">

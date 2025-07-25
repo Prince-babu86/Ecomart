@@ -43,7 +43,7 @@ const PaymentPage = () => {
   useEffect(() => {
     if (!card) {
       // setpopup({tittle:"Page Not Found please check out"})
-      navigate("/profile/create-cards");
+      navigate("/profile/create-cards" , {state:{  cameFromPayment: true , orderItem}});
     }
   }, [card]);
 
@@ -134,9 +134,9 @@ const PaymentPage = () => {
   return (
     <>
       {card ? (
-        <div className="min-h-screen w-full bg-white flex flex-col pb-20 md:flex-row items-start justify-center px-6 py-10 gap-8">
+        <div className="min-h-screen w-full bg-[#f8f9fb] text-[#222] flex flex-col pb-20 md:flex-row items-start justify-center px-6 py-10 gap-8">
           {/* LEFT: Product Summary */}
-          <div className="w-full md:w-1/2 bg-gray-50 p-6 rounded-2xl border border-gray-200 shadow-sm">
+          <div className="w-full md:w-1/2 bg-white p-6 rounded-2xl border border-gray-200 shadow-sm">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
               Order Summary
             </h2>

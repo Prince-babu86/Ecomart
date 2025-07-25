@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CleanEmptyCart = () => {
   return (
@@ -20,9 +21,9 @@ const CleanEmptyCart = () => {
           You haven’t added anything yet. Discover premium toys and fill your cart with joy.
         </p>
 
-        <button className="bg-black hover:bg-gray-900 text-white font-semibold px-6 py-3 rounded-full transition duration-300">
+        <Link to={`/products`} className="bg-black hover:bg-gray-900 text-white font-semibold px-6 py-3 rounded-full transition duration-300">
           🛍️ Shop Now
-        </button>
+        </Link>
       </div>
     </div>
   );

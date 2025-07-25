@@ -88,7 +88,7 @@ const ViewProduct = () => {
     setTimeout(() => {
       setreloader(false);
       navigate(`/product/${id}/check-out`, {
-        state: { orderItem, cameFromProduct: true },
+        state: { orderItem, cameFromProduct: true},
       });
     }, 2000);
   };
@@ -106,7 +106,7 @@ const ViewProduct = () => {
   useEffect(() => {}, [image]);
 
   return (
-    <div className="w-full flex flex-col  bg-white">
+    <div className="w-full flex flex-col  bg-[#f8f9fb] text-[#222]">
       <div className="view_product_page w-full flex p-5">
         {" "}
         <div className="view_product_images flex flex-wrap w-[55%] p-2 gap-3 ">

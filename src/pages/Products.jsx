@@ -86,7 +86,7 @@ const Products = () => {
     );
   });
   return (
-    <div className="products_page_ w-full flex bg-white px-10 flex-col">
+    <div className="products_page_ w-full flex bg-[#f8f9fb] text-[#222] px-10 flex-col">
       <FilterBar />
       <div className="flex flex-wrap ">{renderItems}</div>
       <Footer />

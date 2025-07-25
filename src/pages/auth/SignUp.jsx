@@ -4,26 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useData } from "../../context/DataContext";
 import { nanoid } from "nanoid";
 import "../../style/App.css";
+import { motion } from "framer-motion";
 import "../../style/Tablet.css";
 
 const SignUp = () => {
-  //  useEffect(() => {
-  //    gsap.from(".signup_image" , {
-  //     x:500,
-  //     duration:1.2,
-  //     opacity:0,
-  //      ease: "power3.out",
-  //   })
-
-  //    gsap.from(".signpage_form_page" , {
-  //     x:-1700,
-  //     delay:0.4,
-  //     duration:1.5,
-  //     opacity:0,
-  //      ease: "power3.out",
-  //   })
-  //  },[])
-
   let {
     users,
     setusers,
@@ -79,142 +63,104 @@ const SignUp = () => {
         setpopup(null);
       }, 3000);
     } else {
-      setpopup({tittle:"Please enter full data"})
+      setpopup({ tittle: "Please enter full data" });
       return;
     }
   };
 
   return (
-    <div className="signup_full_page w-full h-screen flex items-center justify-center overflow-x-hidden ">
-      <div className="sign_page rounded-xl w-full flex">
-        <div className="signup_image w-[100%] h-screen object-cover ">
-          <img
-            className="h-full w-full object-cover rounded-tr-md rounded-br-md"
-            src="https://i.pinimg.com/1200x/f8/6f/29/f86f29fa88a0ea9f551dad38953b3a80.jpg"
-            alt=""
-          />
-        </div>
-        <form
-          onSubmit={handleOnSubmit}
-          className="signpage_form_page w-[450px] absolute left-5 mt-4 rounded-2xl bg-[#FAFAFA] p-8 flex items-center justify-center flex-col"
-          action=""
-        >
-          <h1 className="sign_create_account text-4xl font-semibold font-mono text-[#333] ">
-            Create Account
-          </h1>
-          <div className="login_methods flex items-center gap-2 mt-6">
-            <div className="flex items-center group justify-center h-8 w-8 rounded-full border-1 border-gray-500 cursor-pointer hover:bg-slate-200 hover:border-none">
-              <i className="ri-facebook-fill text-gray-700 group-hover:text-blue-500"></i>
-            </div>
-            <div className="flex items-center justify-center h-8 w-8 rounded-full border-1 border-gray-500 cursor-pointer">
-              <i className="ri-google-fill text-gray-700"></i>
-            </div>
-            <div className="flex items-center justify-center h-8 w-8 rounded-full border-1 border-gray-500 cursor-pointer">
-              <i className="ri-linkedin-fill text-gray-700"></i>
-            </div>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.97 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.6 }}
+      className="signup_full_page w-full min-h-screen flex items-center justify-center px-4 py-10 bg-white"
+    >
+      <form
+        onSubmit={handleOnSubmit}
+        className="signpage_form_page w-full max-w-md bg-white p-8 rounded-2xl shadow-xl flex flex-col items-center justify-center"
+      >
+        <h1 className="text-3xl font-bold text-gray-800 mb-5 font-sans text-center">
+          Create Your Account
+        </h1>
+
+        <div className="login_methods flex items-center gap-2 mb-6">
+          <div className="flex items-center group justify-center h-9 w-9 rounded-full border border-gray-300 cursor-pointer hover:bg-blue-50">
+            <i className="ri-facebook-fill text-gray-600 group-hover:text-blue-600"></i>
           </div>
-          <p className="sign_up_query sign_up_query1 text-[12px] font-semibold font-sans mt-4 text-gray-500 w-full text-center ">
-            Welcome! Create your account to get started with us. Whether you're
-            an influencer, startup, or brand enthusiast, joining our platform
-            unlocks access to powerful tools, personalized experiences, and
-            exciting opportunities. Just enter your details below to set up your
-            profile — it’s quick, easy, and secure. Let’s build something
-            amazing together!
+          <div className="flex items-center group justify-center h-9 w-9 rounded-full border border-gray-300 cursor-pointer hover:bg-red-50">
+            <i className="ri-google-fill text-gray-600 group-hover:text-red-500"></i>
+          </div>
+          <div className="flex items-center group justify-center h-9 w-9 rounded-full border border-gray-300 cursor-pointer hover:bg-blue-100">
+            <i className="ri-linkedin-fill text-gray-600 group-hover:text-blue-700"></i>
+          </div>
+        </div>
+
+        <p className="text-sm text-gray-500 text-center mb-6 font-sans">
+          Welcome! Create your account to get started with us. Whether you're an
+          influencer, startup, or brand enthusiast, unlock powerful tools and
+          personalized experiences.
+        </p>
+
+        <div className="sign_form_data flex flex-col items-start w-full gap-4">
+          <div className="w-full border-b border-gray-300">
+            <input
+              onChange={handleOnChnage}
+              value={formdata.name}
+              name="name"
+              type="text"
+              placeholder="Full Name"
+              className="w-full py-3 px-1 outline-none text-sm font-sans placeholder:text-gray-400 bg-transparent"
+            />
+          </div>
+
+          <div className="w-full border-b border-gray-300">
+            <input
+              onChange={handleOnChnage}
+              value={formdata.email}
+              name="email"
+              type="email"
+              placeholder="Email Address"
+              className="w-full py-3 px-1 outline-none text-sm font-sans placeholder:text-gray-400 bg-transparent"
+            />
+          </div>
+
+          <div className="w-full border-b border-gray-300">
+            <input
+              onChange={handleOnChnage}
+              value={formdata.password}
+              name="password"
+              type="password"
+              placeholder="Password"
+              className="w-full py-3 px-1 outline-none text-sm font-sans placeholder:text-gray-400 bg-transparent"
+            />
+          </div>
+
+          <p className="text-[11px] text-gray-400 mt-2">
+            Your data is secure with us. By signing up, you agree to our terms.
           </p>
 
-          <div className="sign_form_data flex flex-col items-start w-full px-5 gap-2 ">
-            <div className="signup_form_item flex flex-col items-start w-full gap-1.5 relative">
-              <label className="text-sm text-[#333] font-semibold font-sans px-2">
-                Name
-              </label>
-              <div className="flex items-center w-full bg-[#efefef] gap-2 px-3 rounded-md py-1 ">
-                <i className="ri-user-fill text-md"></i>
-                <input
-                  onChange={handleOnChnage}
-                  value={formdata.name}
-                  name="name"
-                  type="text"
-                  placeholder="Enter name here..."
-                  className="w-full outline-none text-sm font-mono py-2 px-0.5  rounded-md"
-                />
-              </div>
+          {!loader ? (
+            <button
+              type="submit"
+              className="w-full mt-6 bg-black text-white py-3 rounded-md text-sm font-semibold tracking-wide hover:bg-neutral-900 transition duration-200"
+            >
+              Sign up
+            </button>
+          ) : (
+            <div className="w-full mt-6 bg-black text-white py-3 rounded-md flex items-center justify-center">
+              <span className="h-4 w-4 rounded-full border-2 border-t-transparent animate-spin"></span>
             </div>
+          )}
 
-            <div className="signup_form_item flex flex-col items-start w-full gap-1.5 relative">
-              <label className="text-sm text-[#333] font-semibold font-sans px-2">
-                Email
-              </label>
-              <div className="flex items-center w-full bg-[#efefef] gap-2 px-3 rounded-md py-1 ">
-                <i className="ri-mail-fill text-md"></i>
-                <input
-                  onChange={handleOnChnage}
-                  value={formdata.email}
-                  name="email"
-                  type="text"
-                  placeholder="Enter email here..."
-                  className="w-full outline-none text-sm font-mono py-2 px-0.5  rounded-md"
-                />
-              </div>
-            </div>
-
-            <div className="signup_form_item flex flex-col items-start w-full gap-1.5 relative">
-              <label className="text-sm text-[#333] font-semibold font-sans px-2">
-                Password
-              </label>
-              <div className="flex items-center w-full bg-[#efefef] gap-2 px-3 rounded-md py-1 ">
-                <i className="ri-lock-password-fill text-md"></i>
-                <input
-                  onChange={handleOnChnage}
-                  value={formdata.password}
-                  name="password"
-                  type="password"
-                  placeholder="Enter password here..."
-                  className="w-full outline-none text-sm font-mono py-2 px-0.5  rounded-md"
-                />
-              </div>
-            </div>
-
-            <p className="sign_up_query w-full text-[12px] text-gray-500 mt-4">
-              We value your privacy. Any data you provide is stored securely and
-              used only to improve your experience on our platform. We do not
-              share your personal information with third parties without your
-              consent. By creating an account, you agree to our terms and
-              practices.
-            </p>
-
-            <div className="signup_form_buttons flex items-center justify-between w-full mt-5">
-              <button 
-              onClick={()=>navigate(-1)}
-                type="reset"
-                className="w-40 bg-red-600 px-10 py-2 text-white rounded-md cursor-pointer uppercase hover:bg-red-500"
-              >
-                Cancel
-              </button>
-              {!loader ? (
-                <button
-                  type="submit"
-                  className="w-40 bg-[#000] px-10 py-2 text-white rounded-md uppercase cursor-pointer hover:bg-[#111]"
-                >
-                  Sign up
-                </button>
-              ) : (
-                <div className="w-40 bg-[#000] px-10 py-3 text-white rounded-md uppercase cursor-pointer hover:bg-[#111] flex items-center justify-center">
-                  <span className="h-4 w-4 rounded-full border-2 border-t-transparent animate-spin"></span>
-                </div>
-              )}
-            </div>
-
-            <h4 className="w-full text-center mt-7 text-xs font-sans font-semibold">
-              Already have an account?{" "}
-              <Link className="text-blue-500 font-mono" to={`/login`}>
-                Log in
-              </Link>{" "}
-              to continue your journey with us.
-            </h4>
-          </div>
-        </form>
-      </div>
-    </div>
+          <h4 className="w-full text-center mt-6 text-xs font-sans">
+            Already have an account?{" "}
+            <Link className="text-blue-500 font-semibold" to={`/login`}>
+              Log in
+            </Link>
+          </h4>
+        </div>
+      </form>
+    </motion.div>
   );
 };
 

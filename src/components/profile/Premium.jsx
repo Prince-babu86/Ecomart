@@ -32,7 +32,7 @@ const Premium = () => {
   };
 
   return (
-    <div className=" flex-grow mx-auto p-8 bg-white shadow rounded-xl">
+    <div className=" flex-grow mx-auto p-8 bg-[#f8f9fb] text-[#222] shadow rounded-xl">
       <h2 className="text-2xl font-bold mb-6 text-gray-800">Upgrade to Premium</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
