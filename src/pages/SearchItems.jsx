@@ -13,12 +13,12 @@ const SearchItems = () => {
   let {query} = useParams();
 
   let filterProducts = ProductsData.filter((p) => p.name.toLocaleLowerCase().includes(query.toLocaleLowerCase()) || p.brand.toLocaleLowerCase().includes(query.toLocaleLowerCase()))
-//   console.log(filterProducts);
+//   //(filterProducts);
    const renderItems = filterProducts.map((p, id) => {
 
 
     let isSavedCart = loggeduser?.cart.includes(p.id);
-    console.log(isSavedCart);
+    //(isSavedCart);
    
 
     return (
@@ -64,7 +64,7 @@ const SearchItems = () => {
     );
   });
 
-  console.log(query);
+  //(query);
   return (
     <div className="products_page_ flex flex-wrap px-10 bg-white">
        

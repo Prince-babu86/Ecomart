@@ -50,7 +50,7 @@ export const DataContext = ({ children }) => {
       );
     } else navigate("/login");
   };
-  console.log(loggeduser);
+  //(loggeduser);
 
   // BuyNowFunctions
   const navigate = useNavigate();

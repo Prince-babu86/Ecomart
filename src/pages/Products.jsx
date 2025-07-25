@@ -28,7 +28,7 @@ const Products = () => {
 
   const renderItems = filterProducts.map((p, id) => {
     let issaves = loggeduser?.cart.some((item) => item === p.id);
-    // console.log(issaves);
+    // //(issaves);
 
     return (
       <div  key={p.id} className="product_item cursor-pointer flex flex-col w-[470px]  p-4">

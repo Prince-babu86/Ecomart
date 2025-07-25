@@ -78,7 +78,7 @@ const EditProfile = () => {
         ...form,
         notifications: [...(loggeduser.notifications || []), notif],
       };
-      console.log(updateduser);
+      //(updateduser);
       setloggeduser(updateduser);
       setusers((prev) =>
         prev.map((u) =>

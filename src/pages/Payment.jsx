@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 const PaymentPage = () => {
   const location = useLocation();
   const { orderItem, user } = location.state || {};
-  console.log(orderItem);
+  //(orderItem);
 
   let {
     loggeduser,
@@ -72,7 +72,7 @@ const PaymentPage = () => {
           balance: card.balance - total,
         };
 
-        console.log(updatedcard);
+        //(updatedcard);
 
         let updateduser = {
           ...loggeduser,
@@ -130,7 +130,7 @@ const PaymentPage = () => {
     }
   }, [location]);
 
-  console.log(popup);
+  //(popup);
   return (
     <>
       {card ? (

@@ -51,12 +51,12 @@ const ViewProduct = () => {
         };
       });
     } else {
-      console.log("Quantity cannot be more than 4");
+      //("Quantity cannot be more than 4");
     }
   };
 
-  console.log(orderItem.total);
-  // console.log(parseInt(orderItem.price.replace("," , ""),1));
+  //(orderItem.total);
+  // //(parseInt(orderItem.price.replace("," , ""),1));
 
   const handleDecrement = () => {
     if (orderItem.qty > 1) {
@@ -70,11 +70,11 @@ const ViewProduct = () => {
         };
       });
     } else {
-      console.log("Minimum quantity is 1");
+      //("Minimum quantity is 1");
     }
   };
 
-  console.log(orderItem.total);
+  //(orderItem.total);
 
   const handleSize = (itemsize) => {
     setorderItem((prev) => ({
@@ -93,7 +93,7 @@ const ViewProduct = () => {
     }, 2000);
   };
 
-  // console.log(orderItem.qty);
+  // //(orderItem.qty);
 
   const [image, setimage] = useState(product.images[0]);
 

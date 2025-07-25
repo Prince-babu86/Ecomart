@@ -19,7 +19,7 @@ const MyProducts = () => {
         setreloader(false);
       }, 1000);
     } else {
-      console.log("routes not found");
+      //("routes not found");
     }
   };
 

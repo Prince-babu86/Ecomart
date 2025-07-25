@@ -8,9 +8,9 @@ const CreateCard = () => {
   const navigate = useNavigate();
   const cameFromPayment = location.state?.cameFromPayment;
   const orderitem = location.state?.orderItem;
-  console.log(orderitem);
+  //(orderitem);
 
-  console.log(cameFromPayment);
+  //(cameFromPayment);
 
   const [card, setCard] = useState({
     id: nanoid(),
@@ -79,7 +79,7 @@ const CreateCard = () => {
 
       return;
     }, 3000);
-    console.log("Card Created:", card);
+    //("Card Created:", card);
   };
 
   const generateCardNumber = () => {

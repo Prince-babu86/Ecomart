@@ -16,7 +16,7 @@ const Cart = () => {
     setusers,
     BuyNowProduct,
   } = useData();
-  console.log(loggeduser);
+  //(loggeduser);
 
   const navigate = useNavigate();
 
@@ -31,7 +31,7 @@ const Cart = () => {
 
   const RemoveCartItem = (Productid) => {
    let image = ProductsData.find((p)=>p.id === Productid).images[0]
-  //  console.log(image);
+  //  //(image);
     let notif = {
       tittle: "Product Remove sucessfully",
       message: `Your product remove sucessfully with id of ${Productid} from your cart`,
@@ -58,7 +58,7 @@ const Cart = () => {
   };
 
   let renderCarts = ProductsData.filter((p) => loggeduser?.cart.includes(p.id));
-  console.log(renderCarts);
+  //(renderCarts);
 
   return (
     <div

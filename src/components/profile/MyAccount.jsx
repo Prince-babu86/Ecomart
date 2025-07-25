@@ -26,7 +26,7 @@ const MyAccount = () => {
     setuser(loggeduser)
   },[loggeduser])
 
-  // console.log(loggeduser);
+  // //(loggeduser);
 
   return (
    <>
